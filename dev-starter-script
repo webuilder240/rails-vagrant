@@ -1,0 +1,29 @@
+#! /bin/sh
+
+start(){
+	cd /vagrant
+	rails s -b 0.0.0.0 > /dev/null 2>&1 &
+}
+
+stop(){
+	kill -9 $(lsof -i tcp:3000 -t)
+}
+
+case "$1" in
+	start)
+		start
+		echo "Rails Application Stated port 3000"
+		;;
+	restart)
+		stop
+		start
+		echo "Rails Application Restarted port 3000"
+		;;
+	stop)
+		stop
+		echo "Rails Application Stop port 3000"
+		;;
+esac
+
+exit 0
+
