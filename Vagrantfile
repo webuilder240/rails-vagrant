@@ -39,7 +39,7 @@ Vagrant.configure("2") do |config|
 	sysv-rc-conf dev-starter on
   __SCRIPT__
 
-  # RubyとNodeをコンパイル
+  # Rubyをコンパイル
   config.vm.provision "shell", privileged: false, inline: <<-__SCRIPT__
     # install rbenv
     git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
